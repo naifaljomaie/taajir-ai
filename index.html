@@ -168,7 +168,7 @@
         outputContent.innerText = "⏳ جاري استخدام الذكاء الاصطناعي لكتابة النص التسويقي...";
 
         // ضع مفتاح الـ API الخاص بك هنا بين علامات التنصيص
-        const apiKey = "ضع_مفتاح_API_الخاص_بك_هنا"; 
+        const apiKey = "AQ.Ab8RN6L4o91tc-3J99en3hGb6ww-fciE04OY-jyyIgF1KsNqVg"; 
 
         const promptText = `أنت خبير تسويق إلكتروني للمتاجر في الخليج. اكتب نصاً تسويقياً بياعاً وجذاباً للمنتج التالي: "${product}".
 المطلوب:
@@ -191,7 +191,7 @@
             outputContent.innerText = aiText;
 
         } catch (error) {
-            outputContent.innerText = "AQ.Ab8RN6L4o91tc-3J99en3hGb6ww-fciE04OY-jyyIgF1KsNqVg.";
+            outputContent.innerText = "❌ حدث خطأ أثناء الاتصال بالذكاء الاصطناعي، تأكد من صحة الـ API Key.";
             console.error(error);
         }
     }
