@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وصف AI - صانع المحتوى التسويقي للمتاجر</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        button.btn-submit {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button.btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .result-box {
+            margin-top: 24px;
+            padding: 16px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .btn-copy {
+            background: #e2e8f0;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        #outputContent {
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 وصف AI</h1>
+    <p class="subtitle">ولّد إعلانات ونصوص بياعة لمنتجاتك في ثوانٍ</p>
+
+    <div class="form-group">
+        <label for="productName">اسم المنتج أو تفاصيله السريعة:</label>
+        <input type="text" id="productName" placeholder="مثال: نظارة شمسية سوداء حماية من الأشعة">
+    </div>
+
+    <div class="form-group">
+        <label for="platform">منصة النشر المستهدفة:</label>
+        <select id="platform">
+            <option value="تليجرام">تليجرام (تفاصيل + روابط)</option>
+            <option value="واتساب">واتساب (إعلان مباشر ومختصر)</option>
+            <option value="تيك توك">تيك توك (سيناريو فيديو + هاشتاقات)</option>
+            <option value="متجر إلكتروني">وصف متجر إلكتروني (سلة / زد)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="tone">أسلوب وصياغة النص:</label>
+        <select id="tone">
+            <option value="سعودي حماسي">خليجي / سعودي حماسي</option>
+            <option value="فصحى تسويقية">فصحى احترافية</option>
+            <option value="عامي مبسط">عامي جذاب ومختصر</option>
+        </select>
+    </div>
+
+    <button class="btn-submit" onclick="generateContent()">ولّد النص التسويقي ✨</button>
+
+    <div class="result-box" id="resultBox">
+        <div class="result-header">
+            <strong>النص المقترح:</strong>
+            <button class="btn-copy" onclick="copyText()">📋 نسخ النص</button>
+        </div>
+        <div id="outputContent"></div>
+    </div>
+</div>
+
+<script>
+    function generateContent() {
+        const product = document.getElementById('productName').value;
+        const platform = document.getElementById('platform').value;
+        const tone = document.getElementById('tone').value;
+        const resultBox = document.getElementById('resultBox');
+        const outputContent = document.getElementById('outputContent');
+
+        if (!product) {
+            alert('يرجى كتابة اسم المنتج أو تفاصيله أولاً!');
+            return;
+        }
+
+        // محاكاة مؤقتة لمعاينة النتيجة قبل ربط الـ API الخاص بالذكاء الاصطناعي
+        outputContent.innerText = `جاري تجهيز النص الذكي لـ [${product}]...\n\n(هنا سيظهر النص المولد بالذكاء الاصطناعي والموجه لمنصة ${platform} بأسلوب ${tone}).`;
+        resultBox.style.display = 'block';
+    }
+
+    function copyText() {
+        const text = document.getElementById('outputContent').innerText;
+        navigator.clipboard.writeText(text);
+        alert('تم نسخ النص بنجاح!');
+    }
+</script>
+
+</body>
+</html>
